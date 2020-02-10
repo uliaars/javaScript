@@ -1,0 +1,25 @@
+<script>
+    function mathOperation(arg1 = 1, arg2 = 1, opertaion){
+        switch(opertaion){
+            case "+":
+                alert(arg1 + arg2);
+                break;
+            case "-":
+                alert(arg1 - arg2);
+                break;
+            case "*":
+                alert(arg1 * arg2);
+                break;
+            case "/":
+                alert(arg1 / arg2);
+                break;
+            default:
+                alert("Некорректная операция.");
+                break;
+        }
+    }
+    var number1 = parseInt(prompt("Введите первое число."));
+    var number2 = parseInt(prompt("Введите второе число."));
+    var oper = prompt("Введите математическую операцию: \"+\", \"-\", \"*\" или \"/\".");
+    mathOperation(number1, number2, oper);
+</script>
