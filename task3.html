@@ -1,0 +1,10 @@
+<script>
+	var a = parseInt(prompt("Введите первое число."));
+	var b = parseInt(prompt("Введите второе число."));
+	if (a >= 0 && b >= 0){
+		alert("Разность a и b: " + (a - b));
+	} else if (a < 0 && b < 0){
+		alert("Произведение a и b: " + a * b);
+	} else if (a >= 0 && b < 0 || a < 0 && b >= 0)
+		alert("Сумма a и b: " + (a + b));
+</script>
