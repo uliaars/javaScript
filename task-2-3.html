@@ -1,0 +1,11 @@
+<script>
+    var basket = [1000, 3000, 230, 50];
+    function countBasketPrice(array){
+        var sum = 0;
+        for(var price of array){
+        	sum += price;
+        }
+        alert("Сумма всех товаров в вашей корзине составляет "+sum+" рублей.");
+    }
+    countBasketPrice(basket);
+</script>

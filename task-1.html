@@ -1,0 +1,17 @@
+<script>
+	var a = 2;
+    while(a <= 100){
+    	var b = 2;
+        var isTrue = true
+    	while(b < a){
+    		if (a % b == 0){
+    			isTrue = false;
+    		}
+    		b++;
+    	}
+    	if(isTrue){
+    		document.write(a+"<br>");
+    	}
+    	a++;
+    }   
+</script>
