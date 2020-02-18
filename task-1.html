@@ -1,0 +1,27 @@
+<script>
+    var obj = {};
+    function parseInput(){
+        var input = prompt("Введите число от 0 до 999");
+        var array = input.split("");
+        if(array.length>3){
+            alert("Число не может быть больше 999.");
+        }
+        else if(array.length==3){
+            this.hundreds = array[0];
+            this.dozens = array[1];
+            this.units = array[2];
+            alert("В введеном вами числе "+this.hundreds+" сотен, "+this.dozens+" десятков и "+this.units+" единиц.")
+        }
+        else if(array.length==2){
+            this.dozens = array[0];
+            this.units = array[1];
+            alert("В введеном вами числе "+this.dozens+" десятков и "+this.units+" единиц.")
+        }
+        else if(array.length==1){
+            this.units = array[0];
+            alert("В введеном вами числе "+this.units+" единиц.")
+        }
+    }
+    obj.parse = parseInput;
+    obj.parse();
+</script>
