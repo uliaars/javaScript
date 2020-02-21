@@ -1,0 +1,110 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Шахматы</h1>        
+    <table style = "border-style : solid">
+    </table>        
+        <script>
+            function drawChess () {
+                var table = document.querySelector("table");
+                var letters = ['','A','B','C','D','E','F','G','H',''];
+                var numbersOdd = ['8','6','4','2'];
+                var numbers = ['7','5','3','1']; 
+                for (var k = 1; k <= 10; k++) {
+                    var str = document.createElement("tr"); 
+                    if (k % 2 == 0 && k != 10) {
+                        for (var i = 1; i <= 10; i++) {
+                            if (i % 2 == 0 && i != 10) {
+                                str.innerHTML += '<td align="center"; style = "width : 30px; height : 30px; background-color : white"></td>';
+                            }
+                            else if (i == 1 || i == 10) {
+                                if (k==2){
+                                    str.innerHTML += '<td align="center"; style = "width : 10px">'+numbersOdd[0]+'</td>';
+                                }
+                                if (k==4){
+                                    str.innerHTML += '<td align="center">'+numbersOdd[1]+'</td>';
+                                }
+                                if (k==6){
+                                    str.innerHTML += '<td align="center">'+numbersOdd[2]+'</td>';
+                                }
+                                if (k==8){
+                                    str.innerHTML += '<td align="center">'+numbersOdd[3]+'</td>';
+                                }
+                            }
+                            else {
+                                str.innerHTML += '<td align="center"; style = "width : 30px; height : 30px; background-color : gray"></td>';
+                            }
+                        }
+                    }
+                    else if (k == 1 || k == 10) {
+                        for (var i = 0; i < 9; i++) {
+                            str.innerHTML += '<td align="center">'+letters[i]+'</td>';
+                        }
+                    }
+                    else {
+                        for (var i = 1; i <= 10; i++) {
+                            if (i % 2 == 0 && i != 10) {
+                                str.innerHTML += '<td align="center"; style = "width : 30px; height : 30px; background-color : gray"></td>';
+                            }
+                            else if (i == 1 || i == 10) {
+                                if (k==3){
+                                    str.innerHTML += '<td align="center">'+numbers[0]+'</td>';
+                                }
+                                if (k==5){
+                                    str.innerHTML += '<td align="center">'+numbers[1]+'</td>';
+                                }
+                                if (k==7){
+                                    str.innerHTML += '<td align="center">'+numbers[2]+'</td>';
+                                }
+                                if (k==9){
+                                    str.innerHTML += '<td align="center">'+numbers[3]+'</td>';
+                                }
+                            }
+                            else {
+                                str.innerHTML += '<td align="center"; style = "width : 30px; height : 30px; background-color : white"></td>';
+                            }
+                        }
+                    }
+                    table.append(str);
+                }
+            }
+            function insertChessmen () {
+                var strings = document.querySelectorAll("tr");
+                var string2 = strings[1];
+                var string3 = strings[2];
+                var string8 = strings[7];
+                var string9 = strings[8];
+                var tabs2 = string2.querySelectorAll("td");
+                var tabs3 = string3.querySelectorAll("td");
+                var tabs8 = string8.querySelectorAll("td");
+                var tabs9 = string9.querySelectorAll("td");
+                var blackChess = ['','♜','♞','♝','♛','♚','♝','♞','♜',''];
+                var whiteChess = ['','♖','♘','♗','♔','♕','♗','♘','♖',''];
+                for (var i = 0; i < tabs3.length; i++){
+                    if (i != 0 && i != 9){
+                        var sell = tabs3[i];
+                       sell.innerText += '♟';
+                    }                    
+                }
+                for (var i = 0; i < tabs8.length; i++){
+                    if (i != 0 && i != 9){
+                        var sell = tabs8[i];
+                        sell.innerText += '♙';
+                    }                    
+                }
+                for (var i = 0; i < tabs2.length; i++){
+                    var sell = tabs2[i];
+                    sell.innerText += blackChess[i];                
+                }
+                for (var i = 0; i < tabs9.length; i++){
+                    var sell = tabs9[i];
+                    sell.innerText += whiteChess[i];
+                }
+            }
+            drawChess ();
+            insertChessmen ();
+        </script>   
+                   
+    </body>
+</html>
