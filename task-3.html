@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Мои рисунки</title>
+</head>
+
+<body>
+    <div ><img src="room_1_4x.png" width="500px" id="img"></div>
+    <button id="back">Назад</button>
+    <button id="next">Вперед</button>
+</body>
+
+<script>
+    var back = document.getElementById("back");
+    var next = document.getElementById("next");
+    var img = document.getElementById("img");
+    var imgArr = ["room_1_4x.png", "food3_4x.png", "Izo_Interyer_1_4x.png"];
+    var current = 0;
+
+    function b() {
+        current -= 1;
+        if (current < 0) {
+            current = imgArr.length - 1;
+        }
+        img.src = imgArr[current];
+    }
+    function n() {
+        current += 1;
+        if (current > imgArr.length - 1) {
+            current = 0;
+        }
+        img.src = imgArr[current];
+    }
+
+    back.onclick = b;
+    next.onclick = n;
+
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Превью рисунков</title>
+</head>
+
+<body>
+    <div><img src="room_1_4x.png" width="100px" id="img1"></div>
+    <div><img src="food3_4x.png" width="100px" id="img2"></div>
+    <div><img src="Izo_Interyer_1_4x.png" width="100px" id="img3"></div>
+</body>
+
+<script>
+    var previewSize = 100;
+    var fullSize = 500;
+    var img1 = document.getElementById("img1");
+    var img2 = document.getElementById("img2");
+    var img3 = document.getElementById("img3");
+    var imgArr = [img1, img2, img3];
+    var hasOrig = { "img1": true, "img2": false, "img3": true };
+
+    function f(event) {
+        var img = event.target;
+        var imgId = img.id;
+        if (hasOrig[imgId]) {
+            if (img.width == previewSize) {
+                img.width = fullSize;
+            } else {
+                img.width = previewSize;
+            }
+        } else {
+            alert("Источник картинки не найден");
+        }
+    }
+
+    for (var img of imgArr) {
+        img.onclick = f;
+    }
+
+
+</script>
+
+</html>
