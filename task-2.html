@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Корзина товаров</title>
+</head>
+
+<body>
+    <div id="sum">
+    </div>
+    <div id="cart">
+    </div>
+    <div id="goods">
+    </div>
+</body>
+
+<script>
+    function make_goods(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    var cartSum = document.getElementById("sum");
+    var goods = document.getElementById("goods");
+    var cart = document.getElementById("cart");
+    var good1 = new make_goods("Груша", 100);
+    var good2 = new make_goods("Яблоко", 70);
+    var good3 = new make_goods("Манго", 150);
+    var goodsArr = [good1, good2, good3];
+    var cartArr = [];
+
+    for (var i = 0; i < goodsArr.length; i++) {
+        var goodName = document.createElement("h2");
+        goodName.innerHTML += "Название товара: "+goodsArr[i].name+".<br>";
+        var goodPrice = document.createElement("h3");
+        goods.append(goodName);
+        goodPrice.innerHTML += "Цена товара: "+goodsArr[i].price+" рублей.<br>";
+        goods.append(goodPrice);
+        var goodButton = document.createElement("button");
+        goodButton.innerHTML += "Купить";
+        goodButton.id = i;
+        goods.append(goodButton);
+    }
+
+    var button1 = document.getElementById("0");
+    var button2 = document.getElementById("1");
+    var button3 = document.getElementById("2");
+
+    button1.onclick = function () {
+        cart.innerHTML += "Вы добавили в корзину товар "+good1.name+" стоимостью "+good1.price+" рублей.<br>";
+        cartArr.push(good1.price);
+        countCartPrice();
+    }
+    button2.onclick = function () {
+        cart.innerHTML += "Вы добавили в корзину товар "+good2.name+" стоимостью "+good2.price+" рублей.<br>";
+        cartArr.push(good2.price);
+        countCartPrice();
+    };
+    button3.onclick = function () {
+        cart.innerHTML += "Вы добавили в корзину товар "+good3.name+" стоимостью "+good3.price+" рублей.<br>";
+        cartArr.push(good3.price);
+        countCartPrice();
+    };
+
+    function countCartPrice(){
+        var sum = 0;
+        for(var i = 0; i < cartArr.length; i ++){
+            sum += cartArr[i];
+        }
+        cartSum.innerHTML = "<h2>Сумма всех товаров в вашей корзине составляет "+sum+" рублей.</h2>";
+    }
+    countCartPrice();
+
+</script>
+
+</html>
